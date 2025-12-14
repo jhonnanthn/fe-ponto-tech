@@ -23,14 +23,6 @@
   display: block;
 }
 
-/* Inputs: mimic underline style */
-.form-label {
-  display: block;
-  font-size: 0.95rem;
-  color: #6b6b6b;
-  margin-bottom: 6px;
-}
-
 .form-control {
   border: none;
   border-bottom: 2px solid var(--input-line-idle); /* light line when idle */
@@ -57,7 +49,7 @@
 .invalid-feedback.d-block {
   margin-top: 6px;
   color: #d32f2f;
-  font-size: 0.85rem;
+  font-size: 0.70rem;
 }
 
 /* Secondary outlined button similar to image */
@@ -78,8 +70,16 @@
   display: block;
   margin: 12px 0 22px;
   color: var(--accent-teal);
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   text-decoration: none;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.forgot-password:hover,
+.forgot-password:focus,
+.forgot-password:active {
+  color: var(--accent-hover);
 }
 
 /* small adjustments for spacing */

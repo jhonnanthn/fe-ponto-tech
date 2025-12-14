@@ -59,4 +59,10 @@ export class LoginComponent {
         }
       });
   }
+
+  onResetPassword() {
+    try {
+      console.warn('Funcionalidade de recuperação de senha não implementada.');
+    } catch {}
+  }
 }

@@ -10,14 +10,18 @@
           <div *ngIf="emailInputNg.errors?.['email']">Email inválido.</div>
         </div>
       </div>
-
       <div class="form-floating">
-        <label for="passwordInput" class="form-label">Senha</label>
-        <input id="passwordInput" class="form-control" type="password" [(ngModel)]="password" name="password" required #passwordInputNg="ngModel" />
-        <div class="invalid-feedback d-block" *ngIf="passwordInputNg.invalid && passwordInputNg.touched">A senha é obrigatória.</div>
+        <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required #passwordNg="ngModel" />
+        <label for="password">Senha</label>
+        <div class="invalid-feedback d-block" *ngIf="passwordNg.invalid && passwordNg.touched">
+          <div *ngIf="passwordNg.errors?.['required']">A senha é obrigatório.</div>
+          <div *ngIf="passwordNg.errors?.['password']">Senha inválida.</div>
+        </div>
       </div>
-
-      <button class="btn btn-primary w-100 mt-4" type="submit" [disabled]="loginForm.invalid">Acessar</button>
+      <span class="forgot-password text-end mt-2" (click)="onResetPassword()">
+        Redefinir a senha
+      </span>
+      <button class="btn btn-primary w-100" type="submit">Acessar</button>
     </form>
   </div>
 </div>

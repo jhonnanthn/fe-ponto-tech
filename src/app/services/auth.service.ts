@@ -21,5 +21,25 @@ export class AuthService {
   login(payload: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.baseUrl}/login`, payload);
   }
-}
 
+  getToken(): string | null {
+    try {
+      return typeof localStorage !== 'undefined' ? localStorage.getItem('auth.token') : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
+
+  logout(): void {
+    try {
+      localStorage.removeItem('auth.token');
+      localStorage.removeItem('auth.user');
+    } catch (e) {
+      console.warn('Failed to clear localStorage on logout', e);
+    }
+  }
+}
