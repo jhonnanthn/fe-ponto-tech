@@ -1,1 +1,118 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* App specific styles (globalized) */
+:root {
+  --app-bg: #f5f5f5;
+  /* Accent color (blue similar to the logo) */
+  --accent-teal: #4f7ca6;
+  /* Hover state: slightly stronger (a bit darker/more intense) than --accent-teal */
+  --accent-hover: #3f6f95;
+  --input-line-idle: #cfd8dc;
+  --btn-soft-gray: #bfc7cc;
+  --btn-soft-gray-hover: #aeb6bb;
+  --text-muted: #6b6b6b;
+  --text-dark: #37474f;
+}
+
+body {
+  background-color: var(--app-bg);
+}
+
+/* Global layout helpers used across the app */
+.center-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-card {
+  width: 100%;
+  max-width: 720px;
+  padding: 32px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.app-logo {
+  width: 220px;
+  max-width: 70%;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+/* Inputs: underline style globally for bootstrap .form-control */
+.form-control {
+  border: none;
+  border-bottom: 2px solid var(--input-line-idle);
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 10px 8px 6px 8px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  color: var(--text-dark);
+}
+
+.form-control::placeholder {
+  color: #9aa6ab;
+  opacity: 1;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom-color: var(--accent-teal);
+}
+
+/* smaller helper to bring validation messages near inputs */
+.invalid-feedback {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+/* Primary rounded button (pill) globally */
+.btn-primary {
+  background-color: var(--accent-teal);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--accent-hover);
+  color: #ffffff;
+}
+
+/* Secondary outlined pill button */
+.btn-outline-custom {
+  display: inline-block;
+  width: 100%;
+  max-width: 360px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  background: transparent;
+  color: var(--text-dark);
+  padding: 10px 18px;
+  text-align: center;
+}
+
+/* Links and small controls */
+.link-accent {
+  color: var(--accent-teal);
+  text-decoration: none;
+}
+
+/* spacing utilities */
+.mb-3 { margin-bottom: 18px !important; }
+
+@media (max-width: 480px) {
+  .app-card { padding: 20px; }
+  .app-logo { width: 160px; margin-bottom: 18px; }
+  .btn-primary { padding: 10px 20px; }
+}

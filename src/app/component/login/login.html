@@ -1,0 +1,23 @@
+<div class="login-container d-flex justify-content-center align-items-center">
+  <div class="card login-card p-4">
+    <img src="assets/img/pontoTech.png" alt="Logo PontoTech" class="logo img-fluid mb-3" />
+    <form class="form-floating" #loginForm="ngForm" (ngSubmit)="onLogin()" novalidate>
+      <div class="form-floating">
+        <input type="email" id="emailInput" class="form-control" [(ngModel)]="username" name="username" required #emailInputNg="ngModel" />
+        <label for="emailInput">Email address</label>
+        <div class="invalid-feedback d-block" *ngIf="emailInputNg.invalid && emailInputNg.touched">
+          <div *ngIf="emailInputNg.errors?.['required']">O email é obrigatório.</div>
+          <div *ngIf="emailInputNg.errors?.['email']">Email inválido.</div>
+        </div>
+      </div>
+
+      <div class="form-floating">
+        <label for="passwordInput" class="form-label">Senha</label>
+        <input id="passwordInput" class="form-control" type="password" [(ngModel)]="password" name="password" required #passwordInputNg="ngModel" />
+        <div class="invalid-feedback d-block" *ngIf="passwordInputNg.invalid && passwordInputNg.touched">A senha é obrigatória.</div>
+      </div>
+
+      <button class="btn btn-primary w-100 mt-4" type="submit" [disabled]="loginForm.invalid">Acessar</button>
+    </form>
+  </div>
+</div>
