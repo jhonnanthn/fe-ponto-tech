@@ -1,14 +1,39 @@
-<div class="time-clock d-flex justify-content-center p-4">
-  <div class="card" style="width:480px;">
-    <div class="card-body">
-      <h5 class="card-title">Registro de Ponto</h5>
-      <p class="card-text">Bem-vindo! Aqui você poderá registrar seus horários de entrada e saída.</p>
+<div class="time-clock-container">
+  <div class="clock-section text-center">
+    <h1 class="current-time">{{ currentTime }}</h1>
+    <p class="current-date">{{ currentDate }}</p>
+  </div>
 
-      <div class="d-flex gap-2 justify-content-end">
-        <button class="btn btn-primary">Registrar Entrada</button>
-        <button class="btn btn-secondary">Registrar Saída</button>
-        <button class="btn btn-danger" (click)="logout()">Logout</button>
-      </div>
+  <div class="register-section text-center">
+    <button class="btn-register-clock" (click)="registerClock()">
+      REGISTRAR
+    </button>
+  </div>
+
+  <div class="history-section">
+    <h3 class="history-title">Histórico de Dia</h3>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Hora</th>
+            <th>Localização</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of dailyRecords">
+            <td>{{ record.type }}</td>
+            <td>{{ record.time }}</td>
+            <td>{{ record.heia }}</td>
+            <td>{{ record.status }}</td>
+          </tr>
+          <tr *ngIf="dailyRecords.length === 0">
+            <td colspan="4" class="text-center text-muted">Nenhum registro hoje</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -1,0 +1,46 @@
+<div class="d-flex" id="wrapper">
+  <div class="bg-dark-blue border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading text-white text-center py-4">
+      <img src="/assets/img/logo.png" alt="PontoTech" width="120">
+    </div>
+    <div class="list-group list-group-flush">
+      <a routerLink="/records" 
+         routerLinkActive="active" 
+         class="list-group-item list-group-item-action bg-dark-blue text-white">
+        <i class="bi bi-clock-fill me-2"></i> Registro de Ponto
+      </a>
+      <a routerLink="/extract" 
+         routerLinkActive="active" 
+         class="list-group-item list-group-item-action bg-dark-blue text-white">
+        <i class="bi bi-calendar3 me-2"></i> Meu Extrato
+      </a>
+      <a routerLink="/justifications" 
+         routerLinkActive="active" 
+         class="list-group-item list-group-item-action bg-dark-blue text-white">
+        <i class="bi bi-file-earmark-text me-2"></i> Justificativas
+      </a>
+      <a routerLink="/team-management" 
+         routerLinkActive="active" 
+         class="list-group-item list-group-item-action bg-dark-blue text-white border-top mt-3">
+        <i class="bi bi-people me-2"></i> Gestão de Equipe
+      </a>
+      <a (click)="logout()" 
+         class="list-group-item list-group-item-action bg-dark-blue text-white" 
+         style="cursor: pointer;">
+        <i class="bi bi-box-arrow-right me-2"></i> Sair
+      </a>
+    </div>
+  </div>
+
+  <div id="page-content-wrapper" class="w-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom p-4">
+      <h4 class="m-0">Registro de Ponto</h4>
+      <div class="ms-auto d-flex align-items-center">
+        <span class="me-2" *ngIf="user">Olá, <strong>{{ user.fullName }}</strong></span>
+        <div class="rounded-circle bg-secondary" style="width: 35px; height: 35px;"></div>
+      </div>
+    </nav>
+    
+    <router-outlet></router-outlet>
+  </div>
+</div>

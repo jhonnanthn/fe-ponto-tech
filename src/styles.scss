@@ -1,6 +1,42 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; }
+
+h1.display-3 { /* O relógio */
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+h4 { /* O título da página */
+  font-weight: 600;
+  color: #1a2b48;
+}
+
+/* Título da seção dentro do card */
+.card {
+  font-family: 'Inter', sans-serif;
+  text-transform: none;
+}
+
+/* Texto da tabela de histórico */
+.table {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem; /* 14px */
+}
+
+.table th {
+  font-weight: 500;
+  color: #adb5bd; /* Cinza claro para os cabeçalhos */
+  text-transform: uppercase;
+  font-size: 0.75rem; /* 12px */
+}
+
+.table td {
+  font-weight: 400;
+  color: #495057; /* Cinza escuro para os dados */
+  vertical-align: middle;
+}
 /* App specific styles (globalized) */
 :root {
   --app-bg: #f5f5f5;
@@ -13,6 +49,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --btn-soft-gray-hover: #aeb6bb;
   --text-muted: #6b6b6b;
   --text-dark: #37474f;
+  --primary-blue: #00add8;
+  --dark-navy: #1a2b48;
 }
 
 body {
@@ -112,6 +150,38 @@ body {
 
 label {
   font-size: 14px;
+}
+
+/* responsive dropdown helper */
+.dropdown-responsive {
+  max-width: calc(100vw - 1rem);
+  width: auto;
+  word-break: break-word;
+}
+
+/* Make dropdowns adapt to viewport: keep menu width within viewport and align end menus to the right edge */
+.dropdown-menu {
+  max-width: calc(100vw - 1rem) !important;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+@media (max-width: 576px) {
+  .dropdown-responsive {
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    width: calc(100vw - 1rem);
+    margin: 0.5rem;
+  }
+
+  .dropdown-menu {
+    left: 0 !important;
+    right: 0 !important;
+    width: calc(100vw - 1rem) !important;
+    margin: 0.5rem !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 480px) {
